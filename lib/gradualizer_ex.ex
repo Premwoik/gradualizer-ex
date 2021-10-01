@@ -9,7 +9,7 @@ defmodule GradualizerEx do
 
   alias GradualizerEx.ElixirFileUtils
   alias GradualizerEx.ElixirFmt
-  alias GradualizerEx.SpecifyErlAst
+  alias GradualizerEx.AstSpecifier
 
   require Logger
 
@@ -23,7 +23,7 @@ defmodule GradualizerEx do
       forms =
         forms
         |> put_code_path(opts)
-        |> SpecifyErlAst.specify()
+        |> AstSpecifier.specify()
 
       case :gradualizer.type_check_forms(forms, opts) do
         [] ->
