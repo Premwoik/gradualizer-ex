@@ -453,6 +453,11 @@ defmodule GradualizerEx.AstSpecifier do
     |> pass_tokens(tokens)
   end
 
+  def spec_mapper({:type, anno, :map, :any}, tokens, _opts) do
+    {:type, anno, :map, :any}
+    |> pass_tokens(tokens)
+  end
+
   def spec_mapper({:type, anno, :any}, tokens, _opts) do
     {:type, anno, :any}
     |> pass_tokens(tokens)
